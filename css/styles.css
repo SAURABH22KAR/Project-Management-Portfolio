@@ -693,7 +693,7 @@ footer p {
     left: 0;
     width: 100%;
     background-color: #007BFF;
-    padding: 1rem 0;
+    padding: 5%;
   }
 
   .nav-links.open {
@@ -707,5 +707,9 @@ footer p {
   .burger i {
     font-size: 2rem;
   }
-}
+  }
+
+  .burger-section {
+  text-align: right;
+  }
 
