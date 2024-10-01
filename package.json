@@ -1,9 +1,10 @@
 {
-  "name": "pm-saurabh-baviskar's-portfolio",
+  "name": "pm-saurabh-baviskars-portfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "node app.js",
+  "main": "app.js",  
   "scripts": {
+    "start": "node app.js",  
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
