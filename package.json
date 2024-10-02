@@ -25,6 +25,7 @@
     "mongoose": "^8.7.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "@types/node": "^22.7.4",
+    "nodemon": "^3.1.7"
   }
 }
