@@ -12,8 +12,7 @@ const app = express();
 
 // Connect to MongoDB using MONGO_URI from .env
 mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true, 
-  useUnifiedTopology: true
+  
 })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
@@ -26,37 +25,38 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Routes for multiple pages
-app.get('/', (req, res) => {
+app.get('/index', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));  // Home page
 });
 
-app.get('/about', (req, res) => {
+app.get('/skills', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'skills.html'));  // skills page
 });
 
-app.get('/contact', (req, res) => {
+app.get('/experience', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'experience.html'));  // Experience page
 });
 
-app.get('/contact', (req, res) => {
+app.get('/projects', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'projects.html'));  // Projects page
 });
 
-app.get('/contact', (req, res) => {
+app.get('/education', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'education.html'));  // Education page
 });
 
-app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'certification.html'));  // Certification page
+app.get('/certifications', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'certifications.html'));  // Certification page
 });
 
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'contact.html'));  // contact page
 });
 
-app.get('/contact', (req, res) => {
+app.get('/thank-you', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'thank-you.html'));  // thank you page
 });
+
 
 // POST route to handle form submission with validation
 app.post('/submit-form', [
