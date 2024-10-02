@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const dotenv = require('dotenv');
 const { check, validationResult } = require('express-validator');
 
@@ -11,6 +12,8 @@ const app = express();
 
 // Connect to MongoDB using MONGO_URI from .env
 mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true, 
+  useUnifiedTopology: true
 })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
@@ -19,18 +22,13 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Define Mongoose schema and model for form data
-const contactSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  message: String,
-  date: { type: Date, default: Date.now }
-});
-
-const Contact = mongoose.model('Contact', contactSchema);
-
 // Serve static files (e.g., HTML, CSS)
 app.use(express.static('public'));
+
+// Root route to serve index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // POST route to handle form submission with validation
 app.post('/submit-form', [
