@@ -25,9 +25,37 @@ app.use(express.json());
 // Serve static files (e.g., HTML, CSS)
 app.use(express.static('public'));
 
-// Root route to serve index.html
+// Routes for multiple pages
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));  // Home page
+});
+
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'skills.html'));  // skills page
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'experience.html'));  // Experience page
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'projects.html'));  // Projects page
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'education.html'));  // Education page
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'certification.html'));  // Certification page
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'contact.html'));  // contact page
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'thank-you.html'));  // thank you page
 });
 
 // POST route to handle form submission with validation
