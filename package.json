@@ -1,8 +1,22 @@
 {
+  "name": "pm-saurabh-baviskars-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio for Saurabh Baviskar - Project Management",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"  
+  },
+  "keywords": ["portfolio", "project management", "express", "node", "mongo"],
+  "author": "Saurabh Baviskar",
+  "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
-    "mongoose": "^8.7.0",
-    "vercel": "^37.6.0"
+    "mongoose": "^8.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
