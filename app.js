@@ -12,7 +12,8 @@ const app = express();
 
 // Connect to MongoDB using MONGO_URI from .env
 mongoose.connect(process.env.MONGO_URI, {
-  
+  useNewUrlParser: true, 
+  useUnifiedTopology: true
 })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
@@ -21,16 +22,26 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Define Mongoose schema and model for form data
+const contactSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  message: String,
+  date: { type: Date, default: Date.now }
+});
+
+const Contact = mongoose.model('Contact', contactSchema);
+
 // Serve static files (e.g., HTML, CSS)
 app.use(express.static('public'));
 
 // Routes for multiple pages
-app.get('/index', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));  // Home page
 });
 
 app.get('/skills', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'skills.html'));  // skills page
+  res.sendFile(path.join(__dirname, 'public', 'skills.html'));  // Skills page
 });
 
 app.get('/experience', (req, res) => {
@@ -46,17 +57,16 @@ app.get('/education', (req, res) => {
 });
 
 app.get('/certifications', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'certifications.html'));  // Certification page
+  res.sendFile(path.join(__dirname, 'public', 'certifications.html'));  // Certifications page
 });
 
 app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'contact.html'));  // contact page
+  res.sendFile(path.join(__dirname, 'public', 'contact.html'));  // Contact page
 });
 
 app.get('/thank-you', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'thank-you.html'));  // thank you page
+  res.sendFile(path.join(__dirname, 'public', 'thank-you.html'));  // Thank you page
 });
-
 
 // POST route to handle form submission with validation
 app.post('/submit-form', [
@@ -71,10 +81,12 @@ app.post('/submit-form', [
 
   const { name, email, message } = req.body;
 
+  // Create new contact entry
   const newContact = new Contact({ name, email, message });
 
+  // Save to MongoDB
   newContact.save()
-    .then(() => res.redirect('/thank-you.html'))
+    .then(() => res.redirect('/thank-you'))  // Redirect to the thank-you route after submission
     .catch(err => {
       console.error('Error saving message:', err);
       res.status(500).send('An error occurred. Please try again.');
