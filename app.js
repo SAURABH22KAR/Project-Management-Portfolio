@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const { check, validationResult } = require('express-validator');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -10,13 +10,14 @@ dotenv.config();
 const app = express();
 
 // Connect to MongoDB using MONGO_URI from .env
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, {
+})
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Define Mongoose schema and model for form data
 const contactSchema = new mongoose.Schema({
@@ -31,19 +32,26 @@ const Contact = mongoose.model('Contact', contactSchema);
 // Serve static files (e.g., HTML, CSS)
 app.use(express.static('public'));
 
-// POST route to handle form submission
-app.post('/submit-form', (req, res) => {
+// POST route to handle form submission with validation
+app.post('/submit-form', [
+  check('name', 'Name is required').notEmpty(),
+  check('email', 'Email is invalid').isEmail(),
+  check('message', 'Message is required').notEmpty()
+], (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const { name, email, message } = req.body;
 
-  // Create new contact entry
   const newContact = new Contact({ name, email, message });
 
-  // Save to MongoDB
   newContact.save()
-    .then(() => res.redirect('/thank-you.html'))  // Redirect to the thank-you page after saving
+    .then(() => res.redirect('/thank-you.html'))
     .catch(err => {
       console.error('Error saving message:', err);
-      res.status(500).send('An error occurred. Please try again.'); // Handle error if saving fails
+      res.status(500).send('An error occurred. Please try again.');
     });
 });
 
