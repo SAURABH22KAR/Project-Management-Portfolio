@@ -18,21 +18,11 @@ mongoose.connect(process.env.MONGO_URI, {
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-// Middleware
+// Middleware to parse request bodies
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Define Mongoose schema and model for form data
-const contactSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  message: String,
-  date: { type: Date, default: Date.now }
-});
-
-const Contact = mongoose.model('Contact', contactSchema);
-
-// Serve static files (e.g., HTML, CSS)
+// Serve static files (e.g., CSS, JS, images) from the public folder
 app.use(express.static('public'));
 
 // Routes for multiple pages
@@ -68,6 +58,16 @@ app.get('/thank-you', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'thank-you.html'));  // Thank you page
 });
 
+// Define Mongoose schema and model for form data
+const contactSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  message: String,
+  date: { type: Date, default: Date.now }
+});
+
+const Contact = mongoose.model('Contact', contactSchema);
+
 // POST route to handle form submission with validation
 app.post('/submit-form', [
   check('name', 'Name is required').notEmpty(),
@@ -84,9 +84,9 @@ app.post('/submit-form', [
   // Create new contact entry
   const newContact = new Contact({ name, email, message });
 
-  // Save to MongoDB
+  // Save to MongoDB and redirect to thank-you page
   newContact.save()
-    .then(() => res.redirect('/thank-you'))  // Redirect to the thank-you route after submission
+    .then(() => res.redirect('/thank-you'))
     .catch(err => {
       console.error('Error saving message:', err);
       res.status(500).send('An error occurred. Please try again.');
