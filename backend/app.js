@@ -4,8 +4,8 @@ const path = require('path');
 const dotenv = require('dotenv');
 const { check, validationResult } = require('express-validator');
 
-// Load environment variables from .env file
-dotenv.config();
+// Load environment variables from .env file in the backend folder
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 // Create Express app
 const app = express();
@@ -22,40 +22,40 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Serve static files (e.g., CSS, JS, images) from the public folder
-app.use(express.static('public'));
+// Serve static files (e.g., CSS, JS, images) from the public folder, assuming it is outside the backend folder
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Routes for multiple pages
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));  // Home page
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));  // Home page
 });
 
 app.get('/skills', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'skills.html'));  // Skills page
+  res.sendFile(path.join(__dirname, '..', 'public', 'skills.html'));  // Skills page
 });
 
 app.get('/experience', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'experience.html'));  // Experience page
+  res.sendFile(path.join(__dirname, '..', 'public', 'experience.html'));  // Experience page
 });
 
 app.get('/projects', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'projects.html'));  // Projects page
+  res.sendFile(path.join(__dirname, '..', 'public', 'projects.html'));  // Projects page
 });
 
 app.get('/education', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'education.html'));  // Education page
+  res.sendFile(path.join(__dirname, '..', 'public', 'education.html'));  // Education page
 });
 
 app.get('/certifications', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'certifications.html'));  // Certifications page
+  res.sendFile(path.join(__dirname, '..', 'public', 'certifications.html'));  // Certifications page
 });
 
 app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'contact.html'));  // Contact page
+  res.sendFile(path.join(__dirname, '..', 'public', 'contact.html'));  // Contact page
 });
 
 app.get('/thank-you', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'thank-you.html'));  // Thank you page
+  res.sendFile(path.join(__dirname, '..', 'public', 'thank-you.html'));  // Thank you page
 });
 
 // Define Mongoose schema and model for form data

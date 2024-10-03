@@ -2,10 +2,10 @@
   "name": "pm-saurabh-baviskars-portfolio",
   "version": "1.0.0",
   "description": "Portfolio for Saurabh Baviskar - Project Management",
-  "main": "app.js",
+  "main": "/app",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node /app.js",
+    "dev": "nodemon /app.js"
   },
   "keywords": [
     "portfolio",
