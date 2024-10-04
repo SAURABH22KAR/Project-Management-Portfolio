@@ -39,7 +39,7 @@ header h1 {
 /* Navigation */
 nav {
   background: #007BFF;
-  padding: 1rem 0;
+  padding: 1rem 5;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -47,21 +47,23 @@ nav {
 
 nav .logo a {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
 }
 
 nav .nav-links {
   display: flex;
   list-style: none;
-  gap: 1rem;
+  gap: 2rem;
   padding:initial 5;
+  padding-left: 37%;
 }
 
 nav .nav-links a {
   text-decoration: none;
   color: white;
   transition: color 0.3s ease-in-out;
+  font-size: 1.5rem;
 }
 
 nav .nav-links a:hover {
@@ -81,9 +83,9 @@ nav .nav-links a:hover {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 100%;
+    top: 90%;
     left: 0;
-    width: 100%;
+    width: 30%;
     background-color: #007BFF;
     padding: 5%;
   }
@@ -462,6 +464,7 @@ footer p {
   .gallery img {
     height: auto; /* Let the image height adjust automatically based on its width */
     object-fit: contain; /* Ensure the image is fully visible */
-    max-height: 350px; /* Limit the height to avoid extremely tall images */
-  }
+    max-height: 250px; /* Limit the height to avoid extremely tall images */
+    width: auto;
+   }
 }
