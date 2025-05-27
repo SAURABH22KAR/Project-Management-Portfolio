@@ -47,7 +47,7 @@ nav {
 
 nav .logo a {
   text-decoration: none;
-  margin-left:-10%;
+  margin: auto;
   font-size: 2rem;
   color: white;
 }
