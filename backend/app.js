@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
 const path = require('path');
 const dotenv = require('dotenv');
 const { check, validationResult } = require('express-validator');
@@ -68,12 +69,21 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model('Contact', contactSchema);
 
+// Nodemailer transporter (Gmail SMTP)
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS
+  }
+});
+
 // POST route to handle form submission with validation
 app.post('/submit-form', [
   check('name', 'Name is required').notEmpty(),
   check('email', 'Email is invalid').isEmail(),
   check('message', 'Message is required').notEmpty()
-], (req, res) => {
+], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -81,16 +91,43 @@ app.post('/submit-form', [
 
   const { name, email, message } = req.body;
 
-  // Create new contact entry
+  // Save to MongoDB
   const newContact = new Contact({ name, email, message });
+  try {
+    await newContact.save();
+  } catch (err) {
+    console.error('Error saving message:', err);
+    return res.status(500).send('An error occurred. Please try again.');
+  }
 
-  // Save to MongoDB and redirect to thank-you page
-  newContact.save()
-    .then(() => res.redirect('/thank-you'))
-    .catch(err => {
-      console.error('Error saving message:', err);
-      res.status(500).send('An error occurred. Please try again.');
-    });
+  // Send notification email
+  const mailOptions = {
+    from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
+    to: process.env.GMAIL_USER,
+    replyTo: email,
+    subject: `New message from ${name} — Portfolio`,
+    html: `
+      <div style="font-family:sans-serif;max-width:520px;margin:0 auto;background:#0d0d1a;color:#f1f5f9;border-radius:12px;padding:32px;border:1px solid rgba(129,140,248,0.2)">
+        <h2 style="margin:0 0 4px;color:#818cf8">New Contact Form Submission</h2>
+        <p style="margin:0 0 24px;color:#94a3b8;font-size:14px">Someone reached out via your portfolio</p>
+        <table style="width:100%;border-collapse:collapse">
+          <tr><td style="padding:10px 0;color:#94a3b8;width:80px;vertical-align:top">Name</td><td style="padding:10px 0;font-weight:600">${name}</td></tr>
+          <tr><td style="padding:10px 0;color:#94a3b8;vertical-align:top">Email</td><td style="padding:10px 0"><a href="mailto:${email}" style="color:#38bdf8">${email}</a></td></tr>
+          <tr><td style="padding:10px 0;color:#94a3b8;vertical-align:top">Message</td><td style="padding:10px 0;white-space:pre-wrap">${message}</td></tr>
+        </table>
+        <p style="margin:24px 0 0;font-size:12px;color:#64748b">Hit Reply to respond directly to ${name}.</p>
+      </div>
+    `
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+  } catch (err) {
+    console.error('Error sending email:', err);
+    // Still redirect — message is saved; email failure is non-fatal
+  }
+
+  res.redirect('/thank-you');
 });
 
 // Start the server
