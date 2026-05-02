@@ -3,104 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Saurabh Baviskar</title>
+  <title>Projects — Saurabh Baviskar</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <!-- Font Awesome for icons (burger menu) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Header Section -->
-  <header>
-    <h1>My Projects</h1>
-  </header>
+  <div id="scroll-progress"></div>
 
-  <!-- Navigation Bar -->
-<nav>
-  <div class="container">
-    <h1 class="logo"><a href="index.html">Saurabh Baviskar</a></h1>
+  <nav>
+    <div class="container">
+      <div class="nav-logo"><a href="index.html">Saurabh Baviskar</a></div>
+      <div class="burger"><span></span><span></span><span></span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li class="nav-cta"><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Burger Icon (New Element) -->
-    <div class="burger">
-      <i class="fas fa-bars"></i>
+  <main>
+    <div class="page-header">
+      <h1>Projects</h1>
+      <p>Things I've built — from AI agents to full-stack platforms</p>
     </div>
 
-    <!-- Updated Navigation Links -->
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="experience.html">Experience</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="education.html">Education</a></li>
-      <li><a href="certifications.html">Certifications</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-
-  <!-- Main Content Section -->
-  <main>
-    <section id="projects" class="fade-in">
+    <section>
       <div class="container">
-        <h2>Key Projects</h2>
-        <div class="project-item slide-in">
-          <h3>Chronigen – Conversational AI Agent Platform</h3>
-          <span>March 2026 – Present</span>
-          <ul>
-            <li>Founding and building Chrono, an AI agent platform with multi-turn conversation flow, session management, and intelligent routing.</li>
-            <li>Designed and shipped the full agent UI end-to-end using React and TypeScript.</li>
-            <li>Authored the Supabase schema and migrations for authentication, agent-session persistence, and conversation history.</li>
-            <li>Integrating LLM APIs and building the agent orchestration layer.</li>
-            <li>Tech Stack: React, TypeScript, Tailwind CSS, Supabase, Node.js, LLM APIs, Vercel</li>
-          </ul>
+        <div class="projects-grid">
 
-          <h3>AgriNutrien Web Platform</h3>
-          <span>May 2025 – Present</span>
-          <ul>
-            <li>Built and maintain the company website for AgriNutrien Crop Care, a sustainable farming venture in agri-micronutrients and biostimulants.</li>
-            <li>Handles digital presence, product listings, and vendor outreach.</li>
-            <li>Tech Stack: Node.js, Vercel</li>
-          </ul>
+          <!-- Chronigen -->
+          <div class="project-card featured reveal">
+            <div class="p-head">
+              <div class="p-icon">🤖</div>
+              <span class="p-badge building">Building</span>
+            </div>
+            <div class="p-title">Chronigen — AI Agent Platform</div>
+            <div class="p-period">March 2026 — Present</div>
+            <p class="p-desc">Conversational AI agent platform with multi-turn conversation flow, session management, and intelligent routing. Full end-to-end product ownership.</p>
+            <ul class="p-points">
+              <li>Designed and shipped the agent UI end-to-end using React and TypeScript</li>
+              <li>Supabase schema for auth, session persistence, and conversation history</li>
+              <li>Integrating LLM APIs and building the agent orchestration layer</li>
+            </ul>
+            <div class="p-stack">
+              <span class="s-tag">React</span>
+              <span class="s-tag">TypeScript</span>
+              <span class="s-tag">Tailwind CSS</span>
+              <span class="s-tag">Supabase</span>
+              <span class="s-tag">LLM APIs</span>
+              <span class="s-tag">Vercel</span>
+            </div>
+          </div>
 
-          <h3>Interactive Web Platform (Hosted On Vercel) – Live</h3>
-          <span>Sep 2024 – Present</span>
+          <!-- Interactive Web Platform -->
+          <div class="project-card reveal delay-1">
+            <div class="p-head">
+              <div class="p-icon">🌐</div>
+              <span class="p-badge live">Live</span>
+            </div>
+            <div class="p-title">Interactive Web Platform</div>
+            <div class="p-period">Sep 2024 — Present</div>
+            <p class="p-desc">Full-stack web platform for seed production analytics with multilingual support, hosted on Vercel with 100% uptime.</p>
+            <ul class="p-points">
+              <li>Integrated multilingual capabilities using Google Translate API — UX improved 35%</li>
+              <li>Achieved 98% Lighthouse score on live production site</li>
+              <li>100% uptime on Vercel with Node.js + MongoDB backend</li>
+            </ul>
+            <div class="p-stack">
+              <span class="s-tag">Node.js</span>
+              <span class="s-tag">MongoDB</span>
+              <span class="s-tag">Google Translate API</span>
+              <span class="s-tag">Vercel</span>
+            </div>
+          </div>
 
-          <ul>
-            <li>Developed and hosted an interactive full-stack web platform (Node.js, MongoDB) for seed production analytics with 100% uptime.</li>
-            <li>Integrated multilingual capabilities using Google Translate API and enhanced UX by 35%</li>
-            <li>Delivered a 98% Lighthouse score for performance on the live production site hosted via Vercel.</li>
-            <li>Tech Stack: Node.js, MongoDB, Google Translate, AI Tools</li>
-          </ul>
+          <!-- AgriNutrien -->
+          <div class="project-card reveal delay-2">
+            <div class="p-head">
+              <div class="p-icon">🌱</div>
+              <span class="p-badge live">Live</span>
+            </div>
+            <div class="p-title">AgriNutrien Web Platform</div>
+            <div class="p-period">May 2025 — Present</div>
+            <p class="p-desc">Company website for AgriNutrien Crop Care — a sustainable farming venture in agri-micronutrients and biostimulants.</p>
+            <ul class="p-points">
+              <li>Handles digital presence, product listings, and vendor outreach</li>
+              <li>Built and maintained end-to-end as sole developer</li>
+            </ul>
+            <div class="p-stack">
+              <span class="s-tag">Node.js</span>
+              <span class="s-tag">Vercel</span>
+            </div>
+          </div>
 
-          <h3>Portfolio Website (Hosted On Vercel) – Live</h3>
-          <span>Aug 2024 – Oct 2024</span>
+          <!-- Portfolio Website -->
+          <div class="project-card reveal delay-3">
+            <div class="p-head">
+              <div class="p-icon">💼</div>
+              <span class="p-badge live">Live</span>
+            </div>
+            <div class="p-title">Portfolio Website</div>
+            <div class="p-period">Aug 2024 — Oct 2024</div>
+            <p class="p-desc">This portfolio — redesigned with a modern dark theme, glassmorphism cards, typewriter hero, and scroll animations.</p>
+            <ul class="p-points">
+              <li>Halved load times, extended session durations by 25%</li>
+              <li>SEO strategies drove 30% increase in organic traffic in 3 months</li>
+              <li>99.9% uptime on Vercel with Node.js backend</li>
+            </ul>
+            <div class="p-stack">
+              <span class="s-tag">HTML / CSS / JS</span>
+              <span class="s-tag">Node.js</span>
+              <span class="s-tag">MongoDB</span>
+              <span class="s-tag">Vercel</span>
+            </div>
+          </div>
 
-          <ul>
-            <li>Overhauled page loading processes, halving load times and extending session durations by 25%.</li>
-            <li>Applied SEO strategies, driving a 30% increment in organic traffic within three months.</li>
-            <li>Maintained 99.9% uptime with robust deployment on Vercel.</li>
-            <li>Tech Stack: Node.js, MongoDB, AI Tools</li>
-          </ul>
+          <!-- 3D Hand Recognition -->
+          <div class="project-card reveal delay-4">
+            <div class="p-head">
+              <div class="p-icon">🤚</div>
+              <span class="p-badge" style="background:rgba(129,140,248,0.1);color:#818cf8;border:1px solid rgba(129,140,248,0.22);">Research</span>
+            </div>
+            <div class="p-title">3D Hand Geometry Recognition System</div>
+            <div class="p-period">Jul 2022 — Apr 2023</div>
+            <p class="p-desc">BE final year project — deep learning model for 3D hand geometry recognition using CNN and computer vision.</p>
+            <ul class="p-points">
+              <li>95% recognition accuracy achieved with CNN model</li>
+              <li>Reduced error rates by 30%, accelerated speed by 25%</li>
+              <li>Published research paper — IJRPR</li>
+              <li>Stage 2 completed with 100% success rate</li>
+            </ul>
+            <div class="p-stack">
+              <span class="s-tag">Python</span>
+              <span class="s-tag">TensorFlow</span>
+              <span class="s-tag">CNN</span>
+              <span class="s-tag">Computer Vision</span>
+              <span class="s-tag">Anaconda</span>
+            </div>
+          </div>
 
-          <h3>3D Hand Geometry Based Recognition System</h3>
-          <span>Jul 2022 – Apr 2023</span>
-          <ul>
-            <li>Collaborated within a four-member team to attain a 95% recognition accuracy rate in 3D hand geometry research.</li>
-            <li>Reduced error rates by 30% through designing and implementing CNN models.</li>
-            <li>Accelerated recognition speed by 25% and diminished processing time by 20%</li>
-            <li>Successfully concluded Stage 2 of the project with a perfect 100% success rate</li>
-            <li>Conducted regular progress reviews and instituted feedback loops to ensure continual improvement throughout the project lifecycle.</li>
-            <li>Technologies Used: Python, Deep learning, Computer Vision, Image Processing, CNN, Anaconda</li>
-          </ul>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Saurabh Baviskar. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">Saurabh Baviskar</span>
+        <span class="footer-copy">&copy; 2026 All rights reserved.</span>
+        <div class="footer-links">
+          <a href="https://github.com/SAURABH22KAR" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/saurabhbaviskar123/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:baviskarsaurabh123@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script src="js/script.js"></script>

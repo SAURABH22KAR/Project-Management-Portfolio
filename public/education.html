@@ -3,74 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Education | Saurabh Baviskar</title>
+  <title>Education — Saurabh Baviskar</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <!-- Font Awesome for icons (burger menu) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Header Section -->
-  <header>
-    <h1>My Education</h1>
-  </header>
+  <div id="scroll-progress"></div>
 
-  <!-- Navigation Bar -->
-<nav>
-  <div class="container">
-    <h1 class="logo"><a href="index.html">Saurabh Baviskar</a></h1>
-    
-    <!-- Burger Icon (New Element) -->
-    <div class="burger">
-      <i class="fas fa-bars"></i>
+  <nav>
+    <div class="container">
+      <div class="nav-logo"><a href="index.html">Saurabh Baviskar</a></div>
+      <div class="burger"><span></span><span></span><span></span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li class="nav-cta"><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>Education</h1>
+      <p>Academic background and certifications</p>
     </div>
 
-    <!-- Updated Navigation Links -->
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="experience.html">Experience</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="education.html">Education</a></li>
-      <li><a href="certifications.html">Certifications</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-
-  <!-- Main Content Section -->
-  <main>
-    <section id="education" class="fade-in">
+    <section>
       <div class="container">
-        <h2>Academic Background</h2>
-        <div class="education-grid">
-          <div class="education-item slide-in">
-            <h3>* Project Management, Project Management Professional Certification (Google)</h3>
-            <span>May 2024 - May 2025</span>
-            <ul>
-              <li>Foundations of Project Management Google Taught by: Google Career Certificates Completed by: Saurabh Baviskar by June 1, 2024 Grade Achieved: 91.87%</li>
-              <li>Project Initiation: Starting a Successful Project Google Taught by: Google Career Certificates Completed by: Saurabh Baviskar by August 22, 2024 Grade Achieved: 100%</li>
-              <li>Project Planning: Putting It All Together Google Taught by: Google Career Certificates Completed by: Saurabh Baviskar by November 15, 2024 Grade Achieved: 90%</li> 
-              <li>Project Execution: Running the Project Google Taught by: Google Career Certificates Completed by: Saurabh Baviskar by January 12, 2025 Grade Achieved: 92.96%</li>
-              <li>Agile Project Management Google Taught by: Google Career Certificates Completed by: Saurabh Baviskar by February 16, 2025 Grade Achieved: 90%</li>
-              <li>Capstone: Applying Project Management in the Real World Google Taught by: Google Career Certificates Completed by: Saurabh Baviskar by May 5, 2025 Grade Achieved: 85.31%</li>  
-            </ul>
-            <h4>* BE Computer Engineering, Sinhgad Academy of Engineering(Savitribai Phule Pune University)</h3>
-            <span>Jun 2018 - Apr 2023 | 7.59 CGPA</span>
-            <ul>
-              <li>Improved program performance by 25% in lab projects through advanced algorithms.</li>
-              <li>Enhanced system efficiency by 20% by designing digital logic circuits.</li>
-            </ul>
+        <div class="edu-grid">
+
+          <!-- Google PM Certificate -->
+          <div class="edu-card reveal">
+            <div class="edu-icon">🎓</div>
+            <div>
+              <div class="edu-degree">Google Project Management Professional Certificate</div>
+              <div class="edu-school">Google · Coursera</div>
+              <div class="edu-period">May 2024 — May 2025</div>
+              <div class="edu-body">
+                6-course professional certificate covering the full project management lifecycle — initiation, planning, execution, agile methods, and capstone application.
+              </div>
+              <div class="courses">
+                <span class="c-tag">Foundations of PM — 91.87%</span>
+                <span class="c-tag">Project Initiation — 100%</span>
+                <span class="c-tag">Project Planning — 90%</span>
+                <span class="c-tag">Project Execution — 92.96%</span>
+                <span class="c-tag">Agile PM — 90%</span>
+                <span class="c-tag">Capstone — 85.31%</span>
+              </div>
+            </div>
           </div>
+
+          <!-- BE Computer Engineering -->
+          <div class="edu-card reveal delay-1">
+            <div class="edu-icon">🏛️</div>
+            <div>
+              <div class="edu-degree">Bachelor of Engineering — Computer Science</div>
+              <div class="edu-school">Sinhgad College of Engineering · Savitribai Phule Pune University</div>
+              <div class="edu-period">June 2018 — April 2023</div>
+              <div class="edu-grade">CGPA 7.59 / 10</div>
+              <div class="edu-body" style="margin-top:0.75rem">
+                Core computer science curriculum: algorithms, data structures, digital logic, computer vision, and machine learning. Final year project — 3D Hand Geometry Recognition System (published in IJRPR).
+              </div>
+              <div class="courses" style="margin-top:0.75rem">
+                <span class="c-tag">Algorithms & DSA</span>
+                <span class="c-tag">Computer Vision</span>
+                <span class="c-tag">Machine Learning</span>
+                <span class="c-tag">Digital Logic</span>
+                <span class="c-tag">DBMS</span>
+                <span class="c-tag">OS</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2023 Saurabh Baviskar. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">Saurabh Baviskar</span>
+        <span class="footer-copy">&copy; 2026 All rights reserved.</span>
+        <div class="footer-links">
+          <a href="https://github.com/SAURABH22KAR" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/saurabhbaviskar123/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:baviskarsaurabh123@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script src="js/script.js"></script>

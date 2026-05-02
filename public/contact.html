@@ -3,37 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Saurabh Baviskar</title>
+  <title>Contact — Saurabh Baviskar</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Font Awesome for icons (burger menu) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Header Section -->
-  <header>
-    <div class="header-content">
-      <h1>Get in Touch</h1>
-      <p>If you'd like to connect, feel free to send me a message or reach out via social media!</p>
-    </div>
-    
+  <div id="scroll-progress"></div>
 
-
-  </header>
-
-  <!-- Navigation Bar -->
   <nav>
     <div class="container">
-      <h1 class="logo"><a href="index.html">Saurabh Baviskar</a></h1>
-      
-      <!-- Burger Icon (New Element) -->
-      <div class="burger">
-        <i class="fas fa-bars"></i>
-      </div>
-
-      <!-- Updated Navigation Links -->
+      <div class="nav-logo"><a href="index.html">Saurabh Baviskar</a></div>
+      <div class="burger"><span></span><span></span><span></span></div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="skills.html">Skills</a></li>
@@ -41,61 +22,93 @@
         <li><a href="projects.html">Projects</a></li>
         <li><a href="education.html">Education</a></li>
         <li><a href="certifications.html">Certifications</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-cta"><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Main Content Section -->
   <main>
-    <section id="contact" class="contact-section">
-      
+    <div class="page-header">
+      <h1>Get in Touch</h1>
+      <p>Open to full stack, frontend, and AI-related opportunities</p>
+    </div>
 
+    <section>
       <div class="container">
-        <h2>Connect with Me</h2>
-        <div class="social-links">
-          <a href="mailto:baviskarsaurabh123@gmail.com" class="social-link">
-            <i class="fas fa-envelope"></i> Email
-          </a>
-          <a href="https://github.com/SAURABH22KAR" class="social-link">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/saurabhbaviskar123/" class="social-link">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://www.instagram.com/saurabh__baviskar_____/" class="social-link">
-            <i class="fab fa-instagram"></i> Instagram
-          </a>
-          <a href="https://x.com/Saurabhbaviska9" class="social-link">
-            <i class="fab fa-twitter"></i> Twitter (X)
-          </a>
+        <div class="contact-layout">
+
+          <!-- Left: info & links -->
+          <div class="c-info reveal">
+            <h2>Let's work together</h2>
+            <p>
+              I'm open to junior / associate full stack or frontend developer roles — full-time, remote or Pune-based.
+              If you're hiring or want to chat about an AI side project, reach out below.
+            </p>
+
+            <div class="c-links">
+              <a href="mailto:baviskarsaurabh123@gmail.com" class="c-link">
+                <span class="c-link-icon"><i class="fas fa-envelope"></i></span>
+                baviskarsaurabh123@gmail.com
+              </a>
+              <a href="https://www.linkedin.com/in/saurabhbaviskar123/" target="_blank" class="c-link">
+                <span class="c-link-icon"><i class="fab fa-linkedin"></i></span>
+                linkedin.com/in/saurabhbaviskar123
+              </a>
+              <a href="https://github.com/SAURABH22KAR" target="_blank" class="c-link">
+                <span class="c-link-icon"><i class="fab fa-github"></i></span>
+                github.com/SAURABH22KAR
+              </a>
+              <a href="https://x.com/Saurabhbaviska9" target="_blank" class="c-link">
+                <span class="c-link-icon"><i class="fab fa-x-twitter"></i></span>
+                @Saurabhbaviska9
+              </a>
+              <a href="https://www.instagram.com/saurabh__baviskar_____/" target="_blank" class="c-link">
+                <span class="c-link-icon"><i class="fab fa-instagram"></i></span>
+                @saurabh__baviskar_____
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="contact-form reveal delay-2">
+            <h3>Send a message</h3>
+            <form id="contact-form" action="/submit-form" method="POST">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell me about the role or project..." required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i>&nbsp; Send Message
+              </button>
+            </form>
+            <div id="form-status"></div>
+          </div>
+
         </div>
       </div>
-      
-      <div class="container">
-        <div class="form-section">
-          <h2>Contact Me</h2>
-          <form id="contact-form" action="/submit-form" method="POST">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-
-            <button type="submit" class="submit-btn">Send Message</button>
-          </form>
-          <!-- Form status message will appear here -->
-          <div id="form-status"></div>
-        </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2023 Saurabh Baviskar. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">Saurabh Baviskar</span>
+        <span class="footer-copy">&copy; 2026 All rights reserved.</span>
+        <div class="footer-links">
+          <a href="https://github.com/SAURABH22KAR" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/saurabhbaviskar123/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:baviskarsaurabh123@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script src="js/script.js"></script>

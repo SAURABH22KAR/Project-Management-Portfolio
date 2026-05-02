@@ -3,62 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Certifications | Saurabh Baviskar</title>
+  <title>Certifications — Saurabh Baviskar</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <!-- Font Awesome for icons (burger menu) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Header Section -->
-  <header>
-    <h1>My Certifications</h1>
-  </header>
+  <div id="scroll-progress"></div>
 
-  <!-- Navigation Bar -->
-<nav>
-  <div class="container">
-    <h1 class="logo"><a href="index.html">Saurabh Baviskar</a></h1>
-    
-    <!-- Burger Icon (New Element) -->
-    <div class="burger">
-      <i class="fas fa-bars"></i>
+  <nav>
+    <div class="container">
+      <div class="nav-logo"><a href="index.html">Saurabh Baviskar</a></div>
+      <div class="burger"><span></span><span></span><span></span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li class="nav-cta"><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>Certifications</h1>
+      <p>Verified credentials and achievements</p>
     </div>
 
-    <!-- Updated Navigation Links -->
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="experience.html">Experience</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="education.html">Education</a></li>
-      <li><a href="certifications.html">Certifications</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-
-  <!-- Main Content Section -->
-  <main>
-    <section id="certifications" class="fade-in-slow">
+    <section>
       <div class="container">
-        <h2>Certifications Gallery</h2>
-        <div class="gallery">
-          <img src="assets/final PM Certificate.jpg" alt="Certification 1">
-          <img src="assets/DSA Coursera_page-0001.jpg" alt="Certification 2">
-          <img src="assets/Python Coursera_page-0001.jpg" alt="Certification 3">
-          <img src="assets/Saurabh Krushna Baviskar_Certificate (4)_page-0001.jpg" alt="Certification 4">
-          <img src="assets/Saurabh Baviskar Certificate for Paper Publication IJRPR_page-0001.jpg" alt="Certification 5">
-          
+        <div class="certs-grid">
+
+          <div class="cert-card reveal">
+            <div class="cert-img">
+              <img src="assets/final PM Certificate.jpg" alt="Google Project Management Certificate">
+            </div>
+            <div class="cert-info">
+              <div class="cert-name">Google Project Management Professional Certificate</div>
+              <div class="cert-issuer">Google · Coursera · 2025</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal delay-1">
+            <div class="cert-img">
+              <img src="assets/Foundations of Project Management_page-0001.jpg" alt="Foundations of Project Management">
+            </div>
+            <div class="cert-info">
+              <div class="cert-name">Foundations of Project Management</div>
+              <div class="cert-issuer">Google Career Certificates · Grade: 91.87%</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal delay-2">
+            <div class="cert-img">
+              <img src="assets/Project Initiation Starting a Successful Project_page-0001.jpg" alt="Project Initiation">
+            </div>
+            <div class="cert-info">
+              <div class="cert-name">Project Initiation: Starting a Successful Project</div>
+              <div class="cert-issuer">Google Career Certificates · Grade: 100%</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal delay-3">
+            <div class="cert-img">
+              <img src="assets/puting it all together.jpg" alt="Project Planning">
+            </div>
+            <div class="cert-info">
+              <div class="cert-name">Project Planning: Putting It All Together</div>
+              <div class="cert-issuer">Google Career Certificates · Grade: 90%</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal delay-1">
+            <div class="cert-img">
+              <img src="assets/Saurabh Krushna Baviskar_Certificate (4)_page-0001.jpg" alt="Future Ready Talent Certificate">
+            </div>
+            <div class="cert-info">
+              <div class="cert-name">Future Ready Talent Internship Certificate</div>
+              <div class="cert-issuer">Microsoft · NASSCOM · AICTE · 2022</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal delay-2">
+            <div class="cert-img">
+              <img src="assets/DSA Coursera_page-0001.jpg" alt="Data Structures Certificate">
+            </div>
+            <div class="cert-info">
+              <div class="cert-name">Data Structures</div>
+              <div class="cert-issuer">Coursera</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal delay-3">
+            <div class="cert-img">
+              <img src="assets/Python Coursera_page-0001.jpg" alt="Python Certificate">
+            </div>
+            <div class="cert-info">
+              <div class="cert-name">Introduction to Programming Using Python</div>
+              <div class="cert-issuer">Coursera</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal delay-4">
+            <div class="cert-img">
+              <img src="assets/Saurabh Baviskar Certificate for Paper Publication IJRPR_page-0001.jpg" alt="Research Paper Publication">
+            </div>
+            <div class="cert-info">
+              <div class="cert-name">Research Paper Publication — IJRPR</div>
+              <div class="cert-issuer">3D Hand Geometry Recognition System · 2023</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2023 Saurabh Baviskar. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">Saurabh Baviskar</span>
+        <span class="footer-copy">&copy; 2026 All rights reserved.</span>
+        <div class="footer-links">
+          <a href="https://github.com/SAURABH22KAR" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/saurabhbaviskar123/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:baviskarsaurabh123@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script src="js/script.js"></script>
